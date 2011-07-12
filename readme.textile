@@ -1,2 +1,2 @@
-.h1 Just an example.
+h1. Just an example.
 learning robotlegs here.
