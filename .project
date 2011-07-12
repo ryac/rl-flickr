@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectDescription>
+	<name>flickr-client</name>
+	<comment></comment>
+	<projects>
+	</projects>
+	<buildSpec>
+		<buildCommand>
+			<name>com.powerflasher.fdt.core.FlashBuilder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
+	</buildSpec>
+	<natures>
+		<nature>com.powerflasher.fdt.core.FlashNature</nature>
+	</natures>
+	<linkedResources>
+		<link>
+			<name>minimalcomps</name>
+			<type>2</type>
+			<location>/Users/rye/libs/minimalcomps</location>
+		</link>
+		<link>
+			<name>robotlegs</name>
+			<type>2</type>
+			<location>/Users/rye/libs/robotlegs</location>
+		</link>
+		<link>
+			<name>playerglobal.swc</name>
+			<type>1</type>
+			<location>/Applications/Adobe Flash CS5/Common/Configuration/ActionScript 3.0/FP10/playerglobal.swc</location>
+		</link>
+		<link>
+			<name>swiftsuspenders</name>
+			<type>2</type>
+			<location>/Users/rye/libs/swiftsuspenders</location>
+		</link>
+	</linkedResources>
+</projectDescription>
