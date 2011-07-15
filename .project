@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>flickr-client</name>
+	<name>rl-flickr</name>
 	<comment></comment>
 	<projects>
 	</projects>
@@ -19,6 +19,11 @@
 			<name>minimalcomps</name>
 			<type>2</type>
 			<location>/Users/rye/libs/minimalcomps</location>
+		</link>
+		<link>
+			<name>as3_signals</name>
+			<type>2</type>
+			<locationURI>as3_signals</locationURI>
 		</link>
 		<link>
 			<name>robotlegs</name>

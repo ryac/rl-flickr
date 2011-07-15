@@ -5,4 +5,5 @@
     <AS3Classpath generateProblems="false" type="source" useAsSharedCode="false">minimalcomps</AS3Classpath>
     <AS3Classpath generateProblems="false" type="source" useAsSharedCode="false">robotlegs</AS3Classpath>
     <AS3Classpath generateProblems="false" type="source" useAsSharedCode="false">swiftsuspenders</AS3Classpath>
+    <AS3Classpath generateProblems="false" type="source" useAsSharedCode="false">as3_signals</AS3Classpath>
 </AS3Classpath>
