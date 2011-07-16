@@ -1,4 +1,6 @@
 package mvc.view.ui {
+	import org.osflash.signals.Signal;
+	import org.osflash.signals.natives.NativeSignal;
 	import mvc.view.events.SearchEvent;
 
 	import flash.events.MouseEvent;
@@ -14,6 +16,10 @@ package mvc.view.ui {
 		private var input:InputText;
 		public var btnSearch:PushButton;
 		
+		private var searchBtnClicked:NativeSignal;
+		
+		public var searchClicked:Signal;
+		
 		public function SearchBox() {
 			
 			input = new InputText ();
@@ -25,12 +31,18 @@ package mvc.view.ui {
 			btnSearch.label = "Search Flickr";
 			btnSearch.x = 210;
 			btnSearch.width = 90;
-			btnSearch.addEventListener(MouseEvent.CLICK, onSearchClick, false, 0, true);
 			addChild (btnSearch);
+			
+			searchBtnClicked = new NativeSignal (btnSearch, MouseEvent.CLICK, MouseEvent);
+			searchBtnClicked.add(onClicked);
+			
+			searchClicked = new Signal (String);
+			
 		}
 
-		private function onSearchClick(e:MouseEvent):void {
-			if (input.text != "") dispatchEvent(new SearchEvent (SearchEvent.SEARCH_REQUEST, input.text));
+		private function onClicked(e:MouseEvent):void {
+			if (input.text != "") searchClicked.dispatch(input.text);
 		}
+		
 	}
 }

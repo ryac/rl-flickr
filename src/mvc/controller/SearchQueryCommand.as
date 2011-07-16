@@ -1,4 +1,5 @@
 package mvc.controller {
+	import mvc.service.ISearchService;
 	import mvc.model.FlickrModel;
 
 	import org.robotlegs.mvcs.SignalCommand;
@@ -14,8 +15,12 @@ package mvc.controller {
 		[Inject]
 		public var model:FlickrModel;
 		
+		[Inject]
+		public var service:ISearchService;
+		
 		override public function execute():void {
-			trace ("in execute, query:", query);
+			model.clearData ();
+			service.getResults(query);
 		}
 	}
 }
