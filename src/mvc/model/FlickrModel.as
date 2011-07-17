@@ -1,5 +1,6 @@
 package mvc.model {
 	import mvc.model.events.FlickrEvent;
+	import mvc.signals.DataReadySignal;
 	import mvc.view.events.PhotoEvent;
 
 	import org.robotlegs.mvcs.Actor;
@@ -12,14 +13,18 @@ package mvc.model {
 		private var _photos:Array;
 		private var _index:int;
 		
+		private var dataReadySignal:DataReadySignal;
+		
 		public function FlickrModel() {
 			super();
+			dataReadySignal = new DataReadySignal ();
 		}
 		
 		public function set photos(photos:Array):void {
 			_photos = photos;
 			trace ("dispatch! photos are in model..");
-			dispatch (new FlickrEvent (FlickrEvent.PHOTOS_LOADED, _photos));
+//			dispatch (new FlickrEvent (FlickrEvent.PHOTOS_LOADED, _photos));
+			dataReadySignal.dispatch(_photos);
 		}
 
 		public function updateSelectedPhoto(index:int):void {

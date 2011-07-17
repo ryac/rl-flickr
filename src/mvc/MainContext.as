@@ -1,4 +1,5 @@
 package mvc {
+	import mvc.signals.DataReadySignal;
 	import mvc.controller.SearchQueryCommand;
 	import mvc.model.FlickrModel;
 	import mvc.service.FlickrSearchResultsParser;
@@ -32,6 +33,7 @@ package mvc {
 			injector.mapSingletonOf(ISearchService, FlickrSearchService);			injector.mapSingletonOf(ISearchResultParser, FlickrSearchResultsParser);
 			
 			signalCommandMap.mapSignalClass(SearchQuerySignal, SearchQueryCommand);
+			
 			
 			injector.mapSingleton(FlickrModel);
 			

@@ -1,12 +1,12 @@
 package mvc.view.ui {
+	import com.bit101.components.InputText;
+	import com.bit101.components.PushButton;
+
 	import org.osflash.signals.Signal;
 	import org.osflash.signals.natives.NativeSignal;
-	import mvc.view.events.SearchEvent;
 
-	import flash.events.MouseEvent;
-	import com.bit101.components.PushButton;
-	import com.bit101.components.InputText;
 	import flash.display.Sprite;
+	import flash.events.MouseEvent;
 
 	/**
 	 * @author Ryan Yacyshyn
