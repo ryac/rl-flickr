@@ -1,11 +1,15 @@
 package mvc {
-	import mvc.signals.DataReadySignal;
+	import mvc.controller.StartupCommand;
+
+	import org.robotlegs.base.ContextEvent;
+
 	import mvc.controller.SearchQueryCommand;
 	import mvc.model.FlickrModel;
 	import mvc.service.FlickrSearchResultsParser;
 	import mvc.service.FlickrSearchService;
 	import mvc.service.ISearchResultParser;
 	import mvc.service.ISearchService;
+	import mvc.signals.DataReadySignal;
 	import mvc.signals.SearchQuerySignal;
 	import mvc.view.AppMediator;
 	import mvc.view.FlickrAuthorsMediator;
@@ -29,16 +33,20 @@ package mvc {
 		}
 		
 		override public function startup():void {
+			commandMap.mapEvent(ContextEvent.STARTUP_COMPLETE, StartupCommand);
 			
-			injector.mapSingletonOf(ISearchService, FlickrSearchService);			injector.mapSingletonOf(ISearchResultParser, FlickrSearchResultsParser);
+			injector.mapSingletonOf(ISearchService, FlickrSearchService);
+			injector.mapSingletonOf(ISearchResultParser, FlickrSearchResultsParser);
+			injector.mapSingleton(FlickrModel);
+			
+//			var model:FlickrModel = injector.getInstance(FlickrModel);
+//			injector.mapValue(DataReadySignal, model.dataReadySignal);
 			
 			signalCommandMap.mapSignalClass(SearchQuerySignal, SearchQueryCommand);
 			
-			
-			injector.mapSingleton(FlickrModel);
-			
 			mediatorMap.mapView(FlickrAuthors, FlickrAuthorsMediator);
-			mediatorMap.mapView(PhotoHolder, PhotoHolderMediator);			mediatorMap.mapView(SearchBox, SearchBoxMediator);
+			mediatorMap.mapView(PhotoHolder, PhotoHolderMediator);
+			mediatorMap.mapView(SearchBox, SearchBoxMediator);
 			mediatorMap.mapView(Main, AppMediator);
 			
 			super.startup();

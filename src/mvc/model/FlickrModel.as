@@ -13,7 +13,7 @@ package mvc.model {
 		private var _photos:Array;
 		private var _index:int;
 		
-		private var dataReadySignal:DataReadySignal;
+		public var dataReadySignal:DataReadySignal;
 		
 		public function FlickrModel() {
 			super();
