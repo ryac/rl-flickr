@@ -2,12 +2,13 @@ package mvc.view {
 	import mvc.model.events.FlickrEvent;
 	import mvc.view.events.PhotoEvent;
 	import mvc.view.ui.PhotoHolder;
-	import org.robotlegs.mvcs.Mediator;
+
+	import org.robotlegs.mvcs.SignalMediator;
 
 	/**
 	 * @author Ryan Yacyshyn
 	 */
-	public class PhotoHolderMediator extends Mediator {
+	public class PhotoHolderMediator extends SignalMediator {
 		
 		[Inject]
 		public var view:PhotoHolder;

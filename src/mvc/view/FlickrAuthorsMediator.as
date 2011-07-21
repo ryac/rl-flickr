@@ -1,7 +1,6 @@
 package mvc.view {
-	import mvc.model.FlickrModel;
 	import mvc.model.events.FlickrEvent;
-	import mvc.signals.DataReadySignal;
+	import mvc.signals.ListItemClickSignal;
 	import mvc.view.ui.FlickrAuthors;
 
 	import org.robotlegs.mvcs.SignalMediator;
@@ -17,23 +16,14 @@ package mvc.view {
 		public var view:FlickrAuthors;
 		
 		[Inject]
-		public var flickrModel:FlickrModel;
-		
-		[Inject]
-		public var dataReadySignal:DataReadySignal;
+		public var liClickSignal:ListItemClickSignal;
 		
 		override public function onRegister():void {
 			
 			addViewListener(Event.SELECT, onSelected, Event, false, 0, true);
 			
-			addToSignal(dataReadySignal, onDataReady);
-			
-//			addContextListener(FlickrEvent.PHOTOS_LOADED, onPhotosLoaded, FlickrEvent, false, 0, true);
+			addContextListener(FlickrEvent.PHOTOS_LOADED, onPhotosLoaded, FlickrEvent, false, 0, true);
 			addContextListener(FlickrEvent.CLEAR, onClear, FlickrEvent, false, 0, true);
-		}
-
-		private function onDataReady(photos:Array):void {
-			view.populateList (photos);
 		}
 
 		private function onClear(e:FlickrEvent):void {
@@ -41,7 +31,7 @@ package mvc.view {
 		}
 
 		private function onSelected(e:Event):void {
-			flickrModel.updateSelectedPhoto (view.selectedIndex);
+			liClickSignal.dispatch(view.selectedIndex);
 		}
 
 		private function onPhotosLoaded(e:FlickrEvent):void {

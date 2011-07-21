@@ -1,6 +1,5 @@
 package mvc {
 	import mvc.controller.StartupCommand;
-	import mvc.model.FlickrModel;
 
 	import org.robotlegs.base.ContextEvent;
 	import org.robotlegs.mvcs.SignalContext;
@@ -17,8 +16,6 @@ package mvc {
 		}
 		
 		override public function startup():void {
-			
-			injector.mapSingleton(FlickrModel);
 			
 			commandMap.mapEvent(ContextEvent.STARTUP_COMPLETE, StartupCommand);
 			

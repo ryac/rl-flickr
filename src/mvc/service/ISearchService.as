@@ -5,7 +5,7 @@ package mvc.service {
 	 */
 	public interface ISearchService {
 		
-		function getResults (forQuery:String = "combichrist"):void;
+		function getResults (forQuery:String):void;
 		function set parser (value:ISearchResultParser):void;
 		
 	}

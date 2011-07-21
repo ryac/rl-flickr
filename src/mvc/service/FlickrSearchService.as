@@ -42,7 +42,7 @@ package mvc.service {
 			_parser = value;
 		}
 		
-		public function getResults(forQuery:String = "combichrist"):void {
+		public function getResults(forQuery:String):void {
 						var url:String = "http://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=9a5827372138ae5acde7505b7620cf18&tags=" + forQuery + "&format=rest";
 			var urlRequest:URLRequest = new URLRequest (url);
 			

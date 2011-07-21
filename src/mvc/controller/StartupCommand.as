@@ -4,7 +4,7 @@ package mvc.controller {
 	import mvc.service.FlickrSearchService;
 	import mvc.service.ISearchResultParser;
 	import mvc.service.ISearchService;
-	import mvc.signals.DataReadySignal;
+	import mvc.signals.ListItemClickSignal;
 	import mvc.signals.SearchQuerySignal;
 	import mvc.view.AppMediator;
 	import mvc.view.FlickrAuthorsMediator;
@@ -20,24 +20,21 @@ package mvc.controller {
 	 * @author Ryan Yacyshyn
 	 */
 	public class StartupCommand extends SignalCommand {
-		
-		[Inject]
-		public var model:FlickrModel;
-		
+
 		override public function execute():void {
 			trace ("in execute..");
 			
+			injector.mapSingleton(FlickrModel);
 			injector.mapSingletonOf(ISearchService, FlickrSearchService);
 			injector.mapSingletonOf(ISearchResultParser, FlickrSearchResultsParser);
 			
-			injector.mapValue(DataReadySignal, model.dataReadySignal);
-			
 			signalCommandMap.mapSignalClass(SearchQuerySignal, SearchQueryCommand);
+			signalCommandMap.mapSignalClass(ListItemClickSignal, ListItemClickCommand);
 			
 			mediatorMap.mapView(FlickrAuthors, FlickrAuthorsMediator);
 			mediatorMap.mapView(PhotoHolder, PhotoHolderMediator);
 			mediatorMap.mapView(SearchBox, SearchBoxMediator);
-			mediatorMap.mapView(Main, AppMediator);
+			mediatorMap.mapView(Main, AppMediator); // this one must be last..!
 			
 		}
 	}

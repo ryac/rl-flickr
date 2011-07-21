@@ -20,13 +20,13 @@ package mvc.view.ui {
 			var fvo:FlickrPhoto;
 			for (var i:uint = 0; i < iLen; i++) {
 				fvo = photos[i] as FlickrPhoto;
-				addItem({label: fvo.title});				//addItem(fvo);
+				addItem({label: fvo.title});
 			}
 		}
 
 		public function clear():void {
 			removeAll();
-			addItem ({label:""});
+			addItem ({label:""}); // List doesnt seem to clear without this..
 		}
 	}
 }
