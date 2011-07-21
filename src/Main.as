@@ -26,7 +26,7 @@ package {
 			stage.align = StageAlign.TOP_LEFT;
 			stage.scaleMode = StageScaleMode.NO_SCALE;
 			
-			for (var i:uint = 1; i < 7; i++) {
+			for (var i:uint = 1; i <= 7; i++) {
 				Security.loadPolicyFile ("http://farm" + i + ".static.flickr.com/crossdomain.xml");
 			}
 			

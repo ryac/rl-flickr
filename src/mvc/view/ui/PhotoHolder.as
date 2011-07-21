@@ -38,6 +38,7 @@ package mvc.view.ui {
 			addChild (loader);
 			title.y = loader.content.height + 4;
 			title.text = _photo.title;
+			trace (title.text);
 		}
 
 		public function loadPhoto (photo:FlickrPhoto):void {
