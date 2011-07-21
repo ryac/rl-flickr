@@ -1,5 +1,3 @@
-h1. Just an example.
+h2. Robotlegs/AS3 Signals example (AS3 project)
 
-learning robotlegs here. wow sublime 2 is kinda nice.
-
-adding a new line to test soemthing with git..
+This is a small Flickr app that lets you search for photos and view them using Robotlegs and AS3 Signals.
